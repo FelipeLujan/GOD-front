@@ -4,7 +4,9 @@ import { Options } from "./Options";
 import PodiumComponent from "./PodiumComponent";
 import ArenaComponent from "./ArenaComponent";
 import SelectComponent from "./SelectComponent";
-import history from "./history";
+import axios from "axios"
+import {base} from "./config";
+import isEmpty from "../utils/isEmpty";
 
 class BattlefieldComponent extends Component {
   constructor(props) {
@@ -15,11 +17,19 @@ class BattlefieldComponent extends Component {
       turn: 1,
       player1selection: undefined,
       player2selection: undefined,
-      rounds: ["felipe","albeiro","felipe"],
+      rounds: [],
       winner: undefined
     };
   }
-  nextStep = () => {
+
+    componentDidMount() {
+        const { player1, player2 } = this.props;
+        if ( !isEmpty(player1) && !isEmpty(player2) ) {
+            axios.post(`${base}/api/players`,{player1,player2})
+        };
+    }
+
+    nextStep = () => {
     let { step, turn } = this.state;
     let newStep = step + 1;
     let newTurn = turn === "a" ? "b" : "a";
@@ -69,6 +79,7 @@ roundWinner= (name) => {
           playerSelection={this.playerSelection}
           player1selection={player1selection}
           player2selection={player2selection}
+
         />
       );
     } else if ( step === 3 )  {
@@ -83,6 +94,7 @@ roundWinner= (name) => {
           rounds={rounds}
           history={history}
           setChampion={setChampion}
+          rounds={rounds}
         />
       );
     }else{

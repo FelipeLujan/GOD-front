@@ -18,17 +18,19 @@ class ArenaComponent extends Component {
     if (!player1 || !player2 || !player1selection || !player2selection) {
       history.push("/");
     } else {
-
         roundWinner(this.calculateWinner(player1selection, player2selection));
+
     }
 
   }
 
   calculateWinner = () => {
     const { player1, player2, player1selection, player2selection } = this.props;
-    // if (player1selection===player2selection){
-    //     return "Tie"
-    // }
+
+    if ( player2selection=== player1selection ) {
+      return "Nobody"
+    };
+
     if (
       (player1selection === "c" && player2selection === "b") ||
       (player1selection === "b" && player2selection === "a") ||
@@ -69,16 +71,15 @@ class ArenaComponent extends Component {
     const {
       player1,
       player2,
-      step,
-      nextStep,
+
       newRound,
       player1selection,
-      player2selection,setChampion
+      player2selection,setChampion, rounds
     } = this.props;
     if (player1 && player2 && player1selection && player2selection) {
       return (
         <div className="common-layout">
-          <div className="title">Round1</div>
+          <div className="title">{`Round ${rounds.length }`}</div>
           <div className="main-content">
             <div className="counter">
               <div className="counter__names">
