@@ -1,0 +1,33 @@
+@import "valiables";
+
+.showdown{
+  &__player1, &__player2{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch;
+    span{
+      margin-right: 2rem;
+    }
+  }
+
+}
+
+.counter{
+  color: $dark;
+  &__names, &__rounds, &__winner{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch;
+  }
+  &__names{
+    font-size: 24px;
+    font-weight: 700;
+  }
+}
+

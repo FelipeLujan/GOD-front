@@ -1,0 +1,23 @@
+.common-layout {
+  align-content: center;
+  justify-items: center;
+
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 80% 1fr;
+  grid-template-rows: 25% 1fr 10%;
+  grid-template-areas: ". title ." "main main main" ". action .";
+  grid-area: home-content;
+}
+
+.title {
+  grid-area: title;
+}
+
+.main-content {
+  grid-area: main;
+}
+
+.action {
+  grid-area: action;
+}

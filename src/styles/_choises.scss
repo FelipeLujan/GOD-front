@@ -1,0 +1,28 @@
+.options-component{
+  text-align: center;
+  color: $dark;
+}
+
+.options{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+
+  &__img{
+margin-right: 15px;
+margin-left: 15px;
+    cursor: pointer;
+  padding: 20px;
+    &.chosen{
+      background: #999AC6;
+      border-radius: 47px;
+    }
+
+  }
+  &__warning{
+
+  }
+}

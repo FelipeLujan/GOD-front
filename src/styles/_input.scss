@@ -1,0 +1,25 @@
+@import "valiables";
+.input-fields{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.input-component{
+  margin-right: 1rem;
+  margin-left: 1rem;
+  margin-bottom: 2rem;
+  &__label{
+    color: $dark;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+
+  &__input {
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid $dark;
+  }
+
+
+}
